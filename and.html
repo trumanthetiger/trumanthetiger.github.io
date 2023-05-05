@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AND</title>
+</head>
+<body>
+  <h1>AND</h1>
+  <p>
+    And you can learn to code like this on <a href="https://github.com/">github.com</a>.
+  </p>
+  <pre>
+    <code>
+    #Midterm Project Infotech 1040
+
+#This turns the string input into a workable float variable
+def get_time(time):
+    hour = int(time[:2])
+    minute = int(time[3:5])
+    day = (time[-2:])
+    if day == 'pm' and hour != 12:
+        hour = hour + 12
+    elif day == 'am' and hour == 12:
+        hour = 0
+    minute = (minute/100)
+    operating_time = hour + minute
+    return operating_time
+        
+#This calculates the toll prices given the previous float variable 'operating_time'
+def toll_calculate(operating_time):
+    if 0 <= operating_time <= 7.29:
+        toll = 1.05
+    elif 7.30 <= operating_time <= 19.29:
+        toll = 2.15
+    elif 19.30 <= operating_time <= 23.59:
+        toll = 1.10
+    return toll
+
+#This is the main function that collects tolls, adds them to a list, then prints them when the user is done
+
+def main():
+    tolls=[]
+    while True:
+        time = input("Enter time in 12-hour format, without spaces, e.g. 07:51pm (if done, type 'done'): ")
+        if time == "done":
+            break
+        operating_time = get_time(time)
+        toll = toll_calculate(operating_time)
+        tolls.append(toll)
+    print("Tolls for entered times are:", tolls)
+
+#stole this from the highway example file. Should cause program to execute main function
+if __name__ == "__main__":
+    main()
+		</code>
+	</pre>
+	<p>
+    <a href="index.html">Go to Index</a> | <a href="toes.html">Go to Toes</a>
+  </p>
+  </body>
+</html>
